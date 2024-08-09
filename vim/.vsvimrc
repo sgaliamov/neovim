@@ -3,24 +3,79 @@ source ~/.vimrc
 " nvim and vscode have it by default, but visual studio does not
 set hlsearch
 set incsearch
+set relativenumber
+set number
 
 " ============ RESHARPER ==============
 
-" Ctrl-r-r
-noremap <leader>rr :vsc ReSharper.ReSharper_Rename<CR>
+" noremap <leader>rr :vsc ReSharper.ReSharper_Rename<CR>
+noremap <leader>f :vsc ReSharper.ReSharper_SilentCleanupCode<CR>==
 
-" Ctrl-e-f
-noremap <leader>rf :vsc ReSharper.ReSharper_SilentCleanupCode<CR>
+" commenting
+noremap gc :vsc ReSharper.ReSharper_LineComment<CR>==
+noremap gb :vsc ReSharper.ReSharper_BlockComment<CR>==
+
+" =========== VISUAL STUDIO ===========
+
+" enforse dd as other bindings make it slow
+nnoremap dd dd
+
+" Start debugging
+nnoremap ds :vsc Debug.Start<CR>
+
+" Stop debugging
+nnoremap dS :vsc Debug.StopDebugging<CR>
+
+" Step over
+nnoremap do :vsc Debug.StepOver<CR>
+
+" Step into
+nnoremap di :vsc Debug.StepInto<CR>
+
+" Step out
+nnoremap dI :vsc Debug.StepOut<CR>
+
+" Toggle breakpoint
+nnoremap db :vsc Debug.ToggleBreakpoint<CR>
+
+noremap <A-j> :vsc Edit.MoveSelectedLinesDown<CR>
+noremap <A-k> :vsc Edit.MoveSelectedLinesUp<CR>
+
+"Whole viewport jump-to-word beginning mode:
+nnoremap W gS:vsc Tools.InvokePeasyMotion<CR>
+
+"Select text from current caret position to desired jump label (fwd and reverse directions supported)
+nmap <leader>' gS:vsc Tools.InvokePeasyMotionTextSelect<CR>
+
+nnoremap <leader>zl :so ~/.vsvimrc<CR>
+
+" by default in normal and visual modes it suspends the Vim process and puts it in the background,
+" in insert mode it inputs ^Z
+" remap to relular undo.
+noremap <C-z> u
+inoremap <C-z> <C-o>u
+
+" <C-o> in insert mode temprarly switches to nomal mode, therefore it should not be remaped
+noremap <leader>o <Esc>:vsc File.OpenFile<CR>
+
+" DON'T WORK:
+
+" does not work, disable vsvim handler.
+" noremap <C-s>:vsc File.SaveAll<CR>
+" inoremap <C-s>:vsc File.SaveAll<CR>
+
+" Use F1 as C-p is used in vscode for autocomplete
+" does not work, configure regular shortcut
+" noremap <F1>:vsc Window.QuickLaunch<CR>
+
+" TBD:
 
 " Shift-Alt-F12
 " noremap gF :vsc ReSharper.ReSharper_FindUsages<CR>
 
 " Ctrl-Alt-Right
 " noremap <leader>w :vsc ReSharper.ReSharper_ExtendSelection<CR>
-
-" =========== VISUAL STUDIO ===========
-
-nnoremap <leader>o <Esc>:vsc File.OpenFile<CR>
+" nnoremap <leader>o <Esc>:vsc File.OpenFile<CR>
 " inoremap <C-f> <Esc>:vsc Edit.Find<CR>
 
 " show definition in popup window
@@ -38,38 +93,10 @@ nnoremap <leader>o <Esc>:vsc File.OpenFile<CR>
 " " Close window
 " nnoremap <C-w><C-q> :clo<CR>
 
-" nnoremap <leader>zl :so ~/.vsvimrc<CR>
 " nnoremap <leader>zk :vsc Tools.CustomizeKeyboard<CR>
 
-" move line
-" nnoremap <A-j> :m .+1<CR>==
-" nnoremap <A-k> :m .-2<CR>==
-" inoremap <A-j> <Esc>:m .+1<CR>==gi
-" inoremap <A-k> <Esc>:m .-2<CR>==gi
-" vnoremap <A-j> :vsc Edit.MoveSelectedLinesDown<CR>
-" vnoremap <A-k> :vsc Edit.MoveSelectedLinesUp<CR>
 
 " SURROUNDING
-
-" " surrounding workaround
-" noremap s <NOP>
-" noremap sd <NOP>
-
-" " surround inner word
-" nnoremap s" ciw"<C-r>""<Esc>
-" nnoremap s' ciw'<C-r>"'<Esc>
-" nnoremap s, ciw<<C-r>"><Esc>
-" nnoremap s9 ciw(<C-r>")<Esc>
-" nnoremap s[ ciw[<C-r>"]<Esc>
-" nnoremap s{ ciw{<C-r>"}<Esc>
-
-" " surround visual selected text
-" vnoremap s" c"<C-r>""<Esc>
-" vnoremap s' c"<C-r>"'<Esc>
-" vnoremap s, c<<C-r>"><Esc>
-" vnoremap s9 c(<C-r>")<Esc>
-" vnoremap s[ c[<C-r>"]<Esc>
-" vnoremap s{ c{<C-r>"}<Esc>
 
 " " delete surround
 " nnoremap sd" di"h"_2s<C-r>"<Esc>

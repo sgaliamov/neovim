@@ -35,12 +35,12 @@ mklink /H %userprofile%\.ideavimrc .\nvim\vim\.ideavimrc
 In `asvetliakov.vscode-neovim` to enable input mode bindings we need to disable corresponding keyboard shortcuts:
 
 ``` json
-  {
-    "key": "j",
-    "command": "vscode-neovim.send",
-    "args": "j",
-    "when": "editorTextFocus && neovim.init j&&focusedView == 'workbench.panel.output' &&  neovim.mode == 'insert'"
-  }
+{
+  "key": "j",
+  "command": "vscode-neovim.send",
+  "args": "j",
+  "when": "editorTextFocus && focusedView == 'workbench.panel.output'"
+}
 
 ```
 

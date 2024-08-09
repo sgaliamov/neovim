@@ -10,7 +10,7 @@ end
 --- @param description string is mandatory
 --- @param buffer_or_opts table | number | nil
 --- @return any
-local function key_opts(description, buffer_or_opts)
+function M.key_opts(description, buffer_or_opts)
   local is_opts = type(buffer_or_opts) == 'table'
   local is_buffer = type(buffer_or_opts) == 'number'
 
@@ -72,7 +72,7 @@ function M.map(lhs, rhs, description, modes, buffer_or_opts, force)
     return
   end
   -- todo: if rhs is nop just add description in which key.
-  local opts = key_opts(description, buffer_or_opts)
+  local opts = M.key_opts(description, buffer_or_opts)
   vim.keymap.set(modes, lhs, rhs, opts)
 end
 

@@ -11,6 +11,7 @@ return {
       'marksman', -- md
       'powershell_es',
       'rust_analyzer',
+      'openscad_lsp',
       'taplo', -- toml
       'yamlls', -- yaml
       -- 'csharp_ls',
