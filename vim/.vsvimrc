@@ -1,23 +1,27 @@
 source ~/.vimrc
 
-" nvim and vscode have it by default, but visual studio does not
-set hlsearch
-set incsearch
-set relativenumber
-set number
-
 " ============ RESHARPER ==============
 
 " noremap <leader>rr :vsc ReSharper.ReSharper_Rename<CR>
+
+" Format and cleanup
 noremap <leader>f :vsc ReSharper.ReSharper_SilentCleanupCode<CR>==
 
-" commenting
+" Comment line
 noremap gc :vsc ReSharper.ReSharper_LineComment<CR>==
+
+" Comment block
 noremap gb :vsc ReSharper.ReSharper_BlockComment<CR>==
+
+" go to sources (Ctrl-F12)
+noremap gs :vsc Edit.GoToDeclaration<CR>
+
+" show references (Shift-F12)
+noremap gr :vsc ReSharper.ReSharper_FindUsages<CR>
 
 " =========== VISUAL STUDIO ===========
 
-" enforse dd as other bindings make it slow
+" Enforse `dd` as other bindings make it slow
 nnoremap dd dd
 
 " Start debugging
@@ -27,13 +31,13 @@ nnoremap ds :vsc Debug.Start<CR>
 nnoremap dS :vsc Debug.StopDebugging<CR>
 
 " Step over
-nnoremap do :vsc Debug.StepOver<CR>
+nnoremap dv :vsc Debug.StepOver<CR>
 
 " Step into
-nnoremap di :vsc Debug.StepInto<CR>
+nnoremap dn :vsc Debug.StepInto<CR>
 
 " Step out
-nnoremap dI :vsc Debug.StepOut<CR>
+nnoremap do :vsc Debug.StepOut<CR>
 
 " Toggle breakpoint
 nnoremap db :vsc Debug.ToggleBreakpoint<CR>
@@ -42,18 +46,15 @@ noremap <A-j> :vsc Edit.MoveSelectedLinesDown<CR>
 noremap <A-k> :vsc Edit.MoveSelectedLinesUp<CR>
 
 "Whole viewport jump-to-word beginning mode:
-nnoremap W gS:vsc Tools.InvokePeasyMotion<CR>
+nnoremap WW gS:vsc Tools.InvokePeasyMotion<CR>
+nnoremap Ww gS:vsc Tools.InvokePeasyMotion<CR>
 
 "Select text from current caret position to desired jump label (fwd and reverse directions supported)
-nmap <leader>' gS:vsc Tools.InvokePeasyMotionTextSelect<CR>
+nmap WV gS:vsc Tools.InvokePeasyMotionTextSelect<CR>
+nmap Wv gS:vsc Tools.InvokePeasyMotionTextSelect<CR>
 
+" Reload vim config.
 nnoremap <leader>zl :so ~/.vsvimrc<CR>
-
-" by default in normal and visual modes it suspends the Vim process and puts it in the background,
-" in insert mode it inputs ^Z
-" remap to relular undo.
-noremap <C-z> u
-inoremap <C-z> <C-o>u
 
 " <C-o> in insert mode temprarly switches to nomal mode, therefore it should not be remaped
 noremap <leader>o <Esc>:vsc File.OpenFile<CR>
@@ -70,9 +71,6 @@ noremap <leader>o <Esc>:vsc File.OpenFile<CR>
 
 " TBD:
 
-" Shift-Alt-F12
-" noremap gF :vsc ReSharper.ReSharper_FindUsages<CR>
-
 " Ctrl-Alt-Right
 " noremap <leader>w :vsc ReSharper.ReSharper_ExtendSelection<CR>
 " nnoremap <leader>o <Esc>:vsc File.OpenFile<CR>
@@ -80,9 +78,6 @@ noremap <leader>o <Esc>:vsc File.OpenFile<CR>
 
 " show definition in popup window
 " noremap gD :vsc Edit.PeekDefinition<CR>
-
-" go to implementation (Ctrl-F12)
-" noremap gf :vsc Edit.GoToDeclaration<CR>
 
 " " Copy selected text in the visual mode
 " vnoremap <C-c> y
@@ -94,21 +89,6 @@ noremap <leader>o <Esc>:vsc File.OpenFile<CR>
 " nnoremap <C-w><C-q> :clo<CR>
 
 " nnoremap <leader>zk :vsc Tools.CustomizeKeyboard<CR>
-
-
-" SURROUNDING
-
-" " delete surround
-" nnoremap sd" di"h"_2s<C-r>"<Esc>
-" nnoremap sd' di'h"_2s<C-r>"<Esc>
-" nnoremap sd, di<h"_2s<C-r>"<Esc>
-" nnoremap sd9 di(h"_2s<C-r>"<Esc>
-" nnoremap sd[ di[h"_2s<C-r>"<Esc>
-" nnoremap sd{ di{h"_2s<C-r>"<Esc>
-
-" " change surround
-" nnoremap '" di'h"_2s"<C-r>""<Esc>
-" nnoremap "' di"h"_2s'<C-r>"'<Esc>
 
 " try https://github.com/VsVim/VsVim/blob/master/Documentation/CSharp%19scripting.md
 " https://github.com/keithn/vsvimguide
