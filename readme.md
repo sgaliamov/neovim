@@ -3,7 +3,7 @@
 My `Neovim` config.
 
 ``` cmd
-git clone -b main https://github.com/sgaliamov/nvim
+git clone -b main https://github.com/sgaliamov/vim
 
 mklink /D C:\tools\neovim\nvim-win64\bin\lua %userprofile%\AppData\Local\nvim
 mklink /H %userprofile%\.vimrc .\nvim\vim\.vimrc
