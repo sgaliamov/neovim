@@ -1,14 +1,18 @@
 source ~/.vimrc
 
-" map <leader>f <Action>(ReformatCode)
+" noremap <leader>f <Action>(ReformatCode)   
 
-" todo: support all arrows and visual mode
-" inoremap <silent> <expr> <S-Right> (col('.') == 1 ? '<Esc>v/[^a-z]<CR><Left>' : '<Esc><Right>v/[^a-z]<CR><Left>')
-" inoremap <S-End> <Esc>v$
+" " todo: support all arrows and visual mode
+" " inoremap <silent> <expr> <S-Right> (col('.') == 1 ? '<Esc>v/[^a-z]<CR><Left>' : '<Esc><Right>v/[^a-z]<CR><Left>')
+noremap <S-End> <Esc>v$
+noremap <S-Home> <Esc>v^
+
 
 " set commentary
-set easymoton
+" set easymoton
 set highlightedyank
-set NERDTree
-set surround
+" set NERDTree
+" set surround
+
+" need `IdeaVimExtension` plugin to support this
 set keep-english-in-normal-and-restore-in-insert

@@ -5,7 +5,10 @@
   ],
   "cSpell.words": [
     "ideavimrc",
+    "inoremap",
     "maplocalleader",
+    "nnoremap",
+    "noremap",
     "userprofile",
     "vsvimrc"
   ]
