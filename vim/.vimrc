@@ -7,23 +7,29 @@ set clipboard=unnamed,unnamedplus " need `unnamed` for visual studio
 set smartcase      " Use case sensitivity in searches when uppercase letters are used
 set ignorecase     " Ignore case when searching
 set incsearch      " Incremental search
-set hlsearch       " Highlight search results
+" set hlsearch       " Highlight search results
 set wildmenu       " Enhanced command-line completion
 set number         " Show line numbers
 set relativenumber " Show relative line numbers
+
 
 " " ================ NAVIGATION MAPPINGS ===================
 " inoremap <Home> <Esc>^i
 " inoremap <End> <Esc>$a
 
+" does not work in vscode
+" let g:sneak#label = 1
+" map f <Plug>Sneak_f
+" map F <Plug>Sneak_F
+" map t <Plug>Sneak_t
+" map T <Plug>Sneak_T
+
 " " ============= GENERAL COMMANDS ==============
 
 " Mapping double pressing of the leader key to Escape provides a quick way to exit various modes.
 map <leader> <NOP>
-" map <leader><leader><leader> <NOP>
-
-" " conflicts with easymotions
-" " map <leader><leader> <Esc>
+map <leader><leader> <NOP>
+map <leader><leader><leader> <NOP>
 
 " <Esc>:noh<CR> <- does not work in some cases in normal mode.
 " inoremap <Esc> <Esc>:noh<CR>
@@ -84,6 +90,7 @@ vnoremap p "_dP
 " " by default, in the normal and the visual modes this command suspends the Vim process and puts it in the background,
 " " in the insert mode it inputs ^Z.
 " " remap to relular undo.
+
 " " noremap <C-z> u
 " " inoremap <C-z> <C-o>u
 

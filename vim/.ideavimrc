@@ -1,6 +1,6 @@
 source ~/.vimrc
 
-" noremap <leader>f <Action>(ReformatCode)   
+" noremap <leader>f <Action>(ReformatCode)
 
 " " todo: support all arrows and visual mode
 " " inoremap <silent> <expr> <S-Right> (col('.') == 1 ? '<Esc>v/[^a-z]<CR><Left>' : '<Esc><Right>v/[^a-z]<CR><Left>')
@@ -9,10 +9,19 @@ noremap <S-Home> <Esc>v^
 
 
 " set commentary
-" set easymoton
+
+" need `IdeaVim-EasyMotion`, `AceJump`
+set easymotion
+map ; <Plug>(easymotion-prefix)
+map ;; <Plug>(easymotion-s)
+
 set highlightedyank
 " set NERDTree
 " set surround
+
+" need Which-Key
+set which-key
+set timeoutlen=10000
 
 " need `IdeaVimExtension` plugin to support this
 set keep-english-in-normal-and-restore-in-insert
