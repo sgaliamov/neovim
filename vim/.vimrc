@@ -8,7 +8,7 @@ set smartcase      " Use case sensitivity in searches when uppercase letters are
 set ignorecase     " Ignore case when searching
 set incsearch      " Incremental search
 " set hlsearch       " Highlight search results
-set wildmenu       " Enhanced command-line completion
+" "set wildmenu       " Enhanced command-line completion - does not work in vs
 set number         " Show line numbers
 set relativenumber " Show relative line numbers
 

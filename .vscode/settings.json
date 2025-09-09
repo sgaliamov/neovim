@@ -10,6 +10,8 @@
     "nnoremap",
     "noremap",
     "userprofile",
+    "vcvimrc",
+    "vnoremap",
     "vsvimrc"
   ]
 }

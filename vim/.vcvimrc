@@ -1,0 +1,40 @@
+" ============= GENERAL COMMANDS ==============
+
+" Mapping double pressing of the leader key to Escape provides a quick way to exit various modes.
+map <leader> <NOP>
+map <leader><leader> <NOP>
+map <leader><leader><leader> <NOP>
+
+inoremap jj <Esc>`^
+
+" " ============= TEXT MANIPULATIONS =============
+
+" copy the whole word
+nnoremap <leader>c <Esc>yiw
+
+" cut the whole word
+nnoremap <leader>x <Esc>ciw
+
+" replace word with the buffer but without copying the deleted text
+noremap <leader>r <Esc>viw"_dP
+
+" select whole word
+noremap <leader>v <Esc>viw
+
+" " copy whole word and move to the end of the word
+" noremap <leader>y <Esc>yiwe
+
+" " delete whole word
+" noremap <leader>d <Esc>"_daw
+
+" nnoremap x "_x
+
+
+" Split a line after the cursor and move to the new line.
+nnoremap <leader>j a<CR><Esc>==
+
+" Split a line after the cursor and stay.
+nnoremap <leader>J m`a<CR><Esc>==``
+
+"  When replace text, don't copy replaced text
+vnoremap p "_dP
