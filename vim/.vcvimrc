@@ -5,30 +5,27 @@ map <leader> <NOP>
 map <leader><leader> <NOP>
 map <leader><leader><leader> <NOP>
 
+" To normal mode
 inoremap jj <Esc>`^
 
-" " ============= TEXT MANIPULATIONS =============
+" ============= TEXT MANIPULATIONS =============
 
-" copy the whole word
-nnoremap <leader>c <Esc>yiw
+inoremap <C>x
 
-" cut the whole word
-nnoremap <leader>x <Esc>ciw
+" Copy the whole word
+nnoremap <leader>c "+yiwe
 
-" replace word with the buffer but without copying the deleted text
-noremap <leader>r <Esc>viw"_dP
+" Cut the whole word
+nnoremap <leader>x "+ciw
 
-" select whole word
-noremap <leader>v <Esc>viw
+" Replace word with the buffer but without copying the deleted text
+noremap <leader>r viw"_dP
 
-" " copy whole word and move to the end of the word
-" noremap <leader>y <Esc>yiwe
+" Select whole word
+noremap <leader>v "+viw
 
-" " delete whole word
-" noremap <leader>d <Esc>"_daw
-
-" nnoremap x "_x
-
+" Delete whole word without placing it into a buffer
+noremap <leader>d "_daw
 
 " Split a line after the cursor and move to the new line.
 nnoremap <leader>j a<CR><Esc>==
@@ -36,5 +33,5 @@ nnoremap <leader>j a<CR><Esc>==
 " Split a line after the cursor and stay.
 nnoremap <leader>J m`a<CR><Esc>==``
 
-"  When replace text, don't copy replaced text
+" When replace text, don't copy replaced text
 vnoremap p "_dP
