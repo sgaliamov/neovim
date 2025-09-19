@@ -13,9 +13,18 @@ Create hard links for vim files:
 
 ``` cmd
 mklink /H %userprofile%\.vimrc .\vim\.vimrc
-mklink /H %userprofile%\.vcvimrc .\vim\.vcvimrc
-mklink /H %userprofile%\.vsvimrc .\vim\.vsvimrc
 mklink /H %userprofile%\.ideavimrc .\vim\.ideavimrc
+```
+
+``` pwsh
+$src = ".\vim"
+$dst = $env:USERPROFILE
+
+Get-ChildItem $src -File | ForEach-Object {
+  $l = Join-Path $dst $_.Name
+  if (Test-Path $l) { Remove-Item $l -Force }
+  New-Item -ItemType HardLink -Path $l -Target $_.FullName | Out-Null
+}
 ```
 
 ## To do
