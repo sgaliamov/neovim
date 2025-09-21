@@ -8,6 +8,14 @@ map <leader><leader><leader> <NOP>
 " To normal mode
 inoremap jj <Esc>`^
 
+" ================ NAVIGATION ==================
+
+nnoremap E $
+nnoremap B ^
+
+vnoremap E $
+vnoremap B ^
+
 " ============= TEXT MANIPULATIONS =============
 
 inoremap <C>x
