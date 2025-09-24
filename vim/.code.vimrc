@@ -8,7 +8,19 @@ map <leader><leader><leader> <NOP>
 " To normal mode
 inoremap jj <Esc>`^
 
-" ================ NAVIGATION ==================
+
+" ================================= WINDOWS ===================================
+
+" save and close tab
+nnoremap <leader>q :vsc workbench.action.closeActiveEditor<CR>
+
+" move to another tab
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" = NAVIGATION ================================================================
 
 nnoremap E $
 nnoremap B ^
@@ -17,8 +29,6 @@ vnoremap E $
 vnoremap B ^
 
 " ============= TEXT MANIPULATIONS =============
-
-inoremap <C>x
 
 " Copy the whole word
 nnoremap <leader>c "+yiwe
