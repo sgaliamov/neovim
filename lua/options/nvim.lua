@@ -1,7 +1,7 @@
+local opt = vim.opt
+
 vim.wo.number = true
 vim.wo.relativenumber = true
-
-local opt = vim.opt
 
 -- Edit:
 opt.softtabstop = 2

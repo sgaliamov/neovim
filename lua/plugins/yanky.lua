@@ -1,8 +1,8 @@
 return {
   'gbprod/yanky.nvim',
-  event = { 'BufReadPre', 'BufNewFile' },
+  event = 'VeryLazy', -- to definitely load in vscode
   opts = {
     highlight = { timer = 250 },
   },
-  -- keys = {} -- keys override breaks default bindings.
+  -- keys = {} -- this keys overriding breaks default bindings.
 }

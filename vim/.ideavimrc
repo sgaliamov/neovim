@@ -1,0 +1,42 @@
+source ~/.vimrc
+
+" === IdeaVim specific settings ===
+
+" noremap <leader>f <Action>(ReformatCode)
+
+" === Vim plugin settings ===
+
+set highlightedyank
+
+" ysiw[char] to surround word with quotes
+" S[char] to surround selected text
+set surround
+
+" aq: Around any quotes.
+" iq: Inside any quotes.
+" ab: Around any parentheses, curly braces, and square brackets.
+" ib: Inside any parentheses, curly braces, and square brackets.
+set mini-ai
+
+" to have `ae` and `ie` text objects
+set textobj-entire
+
+" This plugin provides a text-object 'a' (argument).
+set argtextobj
+" let g:argtextobj_pairs="[:],(:),<:>"
+
+" set commentary
+" set NERDTree
+
+" === Other plugin settings ===
+
+" need `Vim AnyObject`
+" set anyobject
+
+" need `IdeaVim-EasyMotion`, `AceJump`
+" set easymotion
+" noremap ; <Plug>(easymotion-prefix)
+" noremap ;; <Plug>(easymotion-s)
+
+" need `IdeaVimExtension` plugin to support this
+set keep-english-in-normal-and-restore-in-insert

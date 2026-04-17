@@ -1,4 +1,4 @@
--- location: C:\Users\u01sga\AppData\Local\nvim
+-- real location is: C:\Users\<user name>\AppData\Local\nvim
 
 require 'options'
 
@@ -23,7 +23,7 @@ local spec = {
 
 -- Conditional plugings.
 if vim.g.vscode then
-  table.insert(spec, { import = 'plugins.vscode-plugs' })
+  -- table.insert(spec, { import = 'plugins.vscode' })
 else
   table.insert(spec, {
     { import = 'plugins.nvim' },
@@ -54,10 +54,6 @@ require('lazy').setup {
     },
     checker = { enabled = true }, -- automatically check for plugin updates
   },
-}
-
-require('keymaps.utils').map_keys {
-  { '<leader>L', ':Lazy<cr>', 'Lazy UI' },
 }
 
 require 'keymaps'

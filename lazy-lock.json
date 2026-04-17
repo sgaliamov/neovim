@@ -1,8 +1,7 @@
 {
   "hop.nvim": { "branch": "master", "commit": "1a1eceafe54b5081eae4cb91c723abd1d450f34b" },
   "lazy.nvim": { "branch": "main", "commit": "0fc34a0cf5f5f6f998a0897119a7d846b47eaa9d" },
-  "mini.nvim": { "branch": "main", "commit": "f24747266a047617d06605a2316aa6c071662fa2" },
+  "nvim-numbertoggle": { "branch": "main", "commit": "c5827153f8a955886f1b38eaea6998c067d2992f" },
   "ruscmd.nvim": { "branch": "main", "commit": "da3b3d4cf86b1e8e6495713f2ee3223d7cc9a53f" },
-  "vscode-multi-cursor.nvim": { "branch": "main", "commit": "a0af78cf5e5a6f2d55e37e7907a3d1b096bbaa4d" },
   "yanky.nvim": { "branch": "main", "commit": "79338563e85a868e59cda02c51b54d90a5514a12" }
 }

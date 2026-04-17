@@ -1,4 +1,17 @@
 {
   "Lua.workspace.library": ["C:/tools/neovim/nvim-win64/share/nvim/runtime/"],
-  "Lua.diagnostics.globals": ["vim"]
+  "Lua.diagnostics.globals": [
+    "vim"
+  ],
+  "cSpell.words": [
+    "ideavimrc",
+    "inoremap",
+    "maplocalleader",
+    "nnoremap",
+    "noremap",
+    "userprofile",
+    "vcvimrc",
+    "vnoremap",
+    "vsvimrc"
+  ]
 }

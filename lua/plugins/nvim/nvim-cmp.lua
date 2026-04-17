@@ -15,7 +15,7 @@ return {
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'hrsh7th/cmp-nvim-lua',
-      'hrsh7th/cmp-path', -- slow
+      -- 'hrsh7th/cmp-path', -- slow
       'hrsh7th/cmp-vsnip',
       'hrsh7th/vim-vsnip',
     },

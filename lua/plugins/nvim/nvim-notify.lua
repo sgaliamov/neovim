@@ -1,3 +1,5 @@
+-- Fancy notifications.
+
 return {
   'rcarriga/nvim-notify',
   event = 'VeryLazy',

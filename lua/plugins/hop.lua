@@ -1,11 +1,13 @@
+-- Smart navigation.
+
 local vinc = { '!', 'n', 'v' }
+local vn = { 'v', 'n' }
 
 return {
   'phaazon/hop.nvim',
-  event = { 'BufReadPre', 'BufNewFile' },
+  event = 'VeryLazy', -- to definitely load in vscode
   opts = {},
   keys = {
-    { 'W', ':HopWordAC<cr>', mode = vinc, desc = 'Hop to word after the cursor' },
-    { 'B', ':HopWordBC<cr>', mode = vinc, desc = 'Hop to word before the cursor' },
+    { 'W', ':HopWord<cr>', mode = vinc, desc = 'Hop to word after the cursor' }
   },
 }
