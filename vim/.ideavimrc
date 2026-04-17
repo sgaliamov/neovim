@@ -1,27 +1,42 @@
 source ~/.vimrc
 
+" === IdeaVim specific settings ===
+
 " noremap <leader>f <Action>(ReformatCode)
 
-" " todo: support all arrows and visual mode
-" " inoremap <silent> <expr> <S-Right> (col('.') == 1 ? '<Esc>v/[^a-z]<CR><Left>' : '<Esc><Right>v/[^a-z]<CR><Left>')
-noremap <S-End> <Esc>v$
-noremap <S-Home> <Esc>v^
-
-
-" set commentary
-
-" need `IdeaVim-EasyMotion`, `AceJump`
-set easymotion
-map ; <Plug>(easymotion-prefix)
-map ;; <Plug>(easymotion-s)
+" === Vim plugin settings ===
 
 set highlightedyank
-" set NERDTree
-" set surround
 
-" need Which-Key
-set which-key
-set timeoutlen=10000
+" ysiw[char] to surround word with quotes
+" S[char] to surround selected text
+set surround
+
+" aq: Around any quotes.
+" iq: Inside any quotes.
+" ab: Around any parentheses, curly braces, and square brackets.
+" ib: Inside any parentheses, curly braces, and square brackets.
+set mini-ai
+
+" to have `ae` and `ie` text objects
+set textobj-entire
+
+" This plugin provides a text-object 'a' (argument).
+set argtextobj
+" let g:argtextobj_pairs="[:],(:),<:>"
+
+" set commentary
+" set NERDTree
+
+" === Other plugin settings ===
+
+" need `Vim AnyObject`
+" set anyobject
+
+" need `IdeaVim-EasyMotion`, `AceJump`
+" set easymotion
+" noremap ; <Plug>(easymotion-prefix)
+" noremap ;; <Plug>(easymotion-s)
 
 " need `IdeaVimExtension` plugin to support this
 set keep-english-in-normal-and-restore-in-insert

@@ -1,103 +1,78 @@
 source ~/.vimrc
 
-" nvim and vscode have it by default, but visual studio does not
-set hlsearch
-set incsearch
-set number
-set relativenumber
+" ========= ReSharper Mappings (enable if you use ReSharper) =========
+" Uncomment as needed
+" nnoremap  <leader>rr :vsc ReSharper.ReSharper_Rename<CR>
+" nnoremap  <leader>fu :vsc ReSharper.ReSharper_FindUsages<CR>
+" nnoremap  <leader>cc :vsc ReSharper.ReSharper_SilentCleanupCode<CR>
+" nnoremap  <leader>gd :vsc ReSharper.ReSharper_GotoDeclaration<CR>
+" nnoremap  <leader>gi :vsc ReSharper.ReSharper_GotoImplementation<CR>
+" nnoremap  <leader>xt :vsc ReSharper.ReSharper_InspectThis<CR>
 
-" " ============ RESHARPER ==============
+" ========= Core Visual Studio Navigation / Editing =========
+" Go to definition / peek
+nnoremap  gd :vsc Edit.GoToDefinition<CR>
+nnoremap  gD :vsc Edit.PeekDefinition<CR>
+" Find all references
+nnoremap  gr :vsc Edit.FindAllReferences<CR>
+" Format document
+nnoremap  = :vsc Edit.FormatDocument<CR>
+" Toggle line comment
+nnoremap  gc :vsc Edit.LineComment<CR>
+" Toggle block comment
+nnoremap  gb :vsc Edit.BlockComment<CR>
 
-" " noremap <leader>rr :vsc ReSharper.ReSharper_Rename<CR>
+" ========= Debugging =========
+nnoremap  <leader>ds :vsc Debug.Start<CR>
+nnoremap  <leader>dS :vsc Debug.StopDebugging<CR>
+nnoremap  <leader>dv :vsc Debug.StepOver<CR>
+nnoremap  <leader>dn :vsc Debug.StepInto<CR>
+nnoremap  <leader>do :vsc Debug.StepOut<CR>
+nnoremap  <leader>db :vsc Debug.ToggleBreakpoint<CR>
 
-" " Format and cleanup
-" noremap <leader>f :vsc ReSharper.ReSharper_SilentCleanupCode<CR>==
+" ========= Motion / Navigation Enhancements =========
+" Whole viewport jump-to-word (PeasyMotion)
+nnoremap  WW gS:vsc Tools.InvokePeasyMotion<CR>
+nnoremap  Ww gS:vsc Tools.InvokePeasyMotion<CR>
+" Select to motion target
+nmap  WV gS:vsc Tools.InvokePeasyMotionTextSelect<CR>
+nmap  Wv gS:vsc Tools.InvokePeasyMotionTextSelect<CR>
 
-" " Comment line
-" noremap gc :vsc ReSharper.ReSharper_LineComment<CR>==
+" Buffer/document switching
+nnoremap  <leader>bn :vsc Window.NextDocumentWindow<CR>
+nnoremap  <leader>bp :vsc Window.PreviousDocumentWindow<CR>
 
-" " Comment block
-" noremap gb :vsc ReSharper.ReSharper_BlockComment<CR>==
+" ========= Line Movement (uncomment if not conflicting with VS) =========
+" nnoremap <A-j> :vsc Edit.MoveSelectedLinesDown<CR>
+" nnoremap <A-k> :vsc Edit.MoveSelectedLinesUp<CR>
+" vnoremap <A-j> :vsc Edit.MoveSelectedLinesDown<CR>gv
+" vnoremap <A-k> :vsc Edit.MoveSelectedLinesUp<CR>gv
 
-" " go to sources (Ctrl-F12)
-" noremap gs :vsc Edit.GoToDeclaration<CR>
+" ========= Saving =========
+" Visual Studio may intercept <C-s>; ensure no conflicting VS shortcut is blocking VsVim.
+" Normal mode save all
+nnoremap  <C-s> :vsc File.SaveAll<CR>
+" Insert mode save all (returns to insert)
+inoremap  <C-s> <Esc>:vsc File.SaveAll<CR>a
+" Visual mode save then reselect
+vnoremap  <C-s> <Esc>:vsc File.SaveAll<CR>gv
 
-" " show references (Shift-F12)
-" noremap gr :vsc ReSharper.ReSharper_FindUsages<CR>
+" ========= Window / Pane Management =========
+" Close current document
+nnoremap  <leader>q :vsc File.Close<CR>
+" Move between split tool windows (if you use them)
+nnoremap  <leader><Left>  :vsc Window.ActivatePreviousDocumentWindow<CR>
+nnoremap  <leader><Right> :vsc Window.ActivateNextDocumentWindow<CR>
 
-" " =========== VISUAL STUDIO ===========
+" ========= Reload Config =========
+nnoremap  <leader>vr :so ~/.vsvimrc<CR>:echo "VsVim config reloaded"<CR>
 
-" " Enforse `dd` as other bindings make it slow
-" nnoremap dd dd
+" ========= Search Helpers =========
+" Clear search highlight quickly
+nnoremap  <leader>/ :nohlsearch<CR>
 
-" " Start debugging
-" nnoremap ds :vsc Debug.Start<CR>
-
-" " Stop debugging
-" nnoremap dS :vsc Debug.StopDebugging<CR>
-
-" " Step over
-" nnoremap dv :vsc Debug.StepOver<CR>
-
-" " Step into
-" nnoremap dn :vsc Debug.StepInto<CR>
-
-" " Step out
-" nnoremap do :vsc Debug.StepOut<CR>
-
-" " Toggle breakpoint
-" nnoremap db :vsc Debug.ToggleBreakpoint<CR>
-
-" noremap <A-j> :vsc Edit.MoveSelectedLinesDown<CR>
-" noremap <A-k> :vsc Edit.MoveSelectedLinesUp<CR>
-
-" "Whole viewport jump-to-word beginning mode:
-" nnoremap WW gS:vsc Tools.InvokePeasyMotion<CR>
-" nnoremap Ww gS:vsc Tools.InvokePeasyMotion<CR>
-
-" "Select text from current caret position to desired jump label (fwd and reverse directions supported)
-" nmap WV gS:vsc Tools.InvokePeasyMotionTextSelect<CR>
-" nmap Wv gS:vsc Tools.InvokePeasyMotionTextSelect<CR>
-
-" " Reload vim config.
-" nnoremap <leader>zl :so ~/.vsvimrc<CR>
-
-" " <C-o> in insert mode temprarly switches to nomal mode, therefore it should not be remaped
-" noremap <leader>o <Esc>:vsc File.OpenFile<CR>
-
-" " DON'T WORK:
-
-" " does not work, disable vsvim handler.
-" " noremap <C-s>:vsc File.SaveAll<CR>
-" " inoremap <C-s>:vsc File.SaveAll<CR>
-
-" " Use F1 as C-p is used in vscode for autocomplete
-" " does not work, configure regular shortcut
-" " noremap <F1>:vsc Window.QuickLaunch<CR>
-
-" " TBD:
-
-" " Ctrl-Alt-Right
-" " noremap <leader>w :vsc ReSharper.ReSharper_ExtendSelection<CR>
-" " nnoremap <leader>o <Esc>:vsc File.OpenFile<CR>
-" " inoremap <C-f> <Esc>:vsc Edit.Find<CR>
-
-" " show definition in popup window
-" " noremap gD :vsc Edit.PeekDefinition<CR>
-
-" " " Copy selected text in the visual mode
-" " vnoremap <C-c> y
-
-" " " Copy a line in the normal mode
-" " nnoremap <C-c> yy
-
-" " " Close window
-" " nnoremap <C-w><C-q> :clo<CR>
-
-" " nnoremap <leader>zk :vsc Tools.CustomizeKeyboard<CR>
-
-" " try https://github.com/VsVim/VsVim/blob/master/Documentation/CSharp%19scripting.md
-" " https://github.com/keithn/vsvimguide
-
-" " https://github.com/neovim/nvim-lspconfig?tab=readme-ov-file#suggested-configuration inspiration for key bindings
-" " https://github.com/vscode-neovim/vscode-neovim?tab=readme-ov-file#code-navigation
+" ========= Experimental / Reference =========
+" Peek references (alternative)
+" nnoremap  <leader>pr :vsc Edit.PeekReferences<CR>
+" Quick launch (if you free F1)
+nnoremap  <F1> :vsc Help.QuickLaunch<CR>

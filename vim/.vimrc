@@ -1,3 +1,7 @@
+" to reset all settings to default:
+" :mapclear!
+" :set all&
+
 let mapleader = " " " does not work in vscodevim.vim
 let maplocalleader = " "
 
@@ -7,67 +11,48 @@ set clipboard=unnamed,unnamedplus " need `unnamed` for visual studio
 set smartcase      " Use case sensitivity in searches when uppercase letters are used
 set ignorecase     " Ignore case when searching
 set incsearch      " Incremental search
-" set hlsearch       " Highlight search results
+set hlsearch       " Highlight search results
 " "set wildmenu       " Enhanced command-line completion - does not work in vs
 set number         " Show line numbers
 set relativenumber " Show relative line numbers
 
-
-" " ================ NAVIGATION MAPPINGS ===================
-" inoremap <Home> <Esc>^i
-" inoremap <End> <Esc>$a
-
-" does not work in vscode
-" let g:sneak#label = 1
-" map f <Plug>Sneak_f
-" map F <Plug>Sneak_F
-" map t <Plug>Sneak_t
-" map T <Plug>Sneak_T
-
-" " ============= GENERAL COMMANDS ==============
+" ============= GENERAL COMMANDS ==============
 
 " Mapping double pressing of the leader key to Escape provides a quick way to exit various modes.
-map <leader> <NOP>
-map <leader><leader> <NOP>
-map <leader><leader><leader> <NOP>
+" conflict with EasyMotion
+" map <leader> <NOP>
+" map <leader><leader> <NOP>
+" map <leader><leader><leader> <NOP>
 
-" <Esc>:noh<CR> <- does not work in some cases in normal mode.
-" inoremap <Esc> <Esc>:noh<CR>
+" To normal mode
+" inoremap jj <Esc>`^
 
-" " vs and vscode use native shortcut
-" " noremap <C-s> <Esc>:w<CR>
+" ==== NAVIGATION ================================================================
 
-" " vcode [-]: have to use the custom script in `settings.json`:
-" " "vscode-neovim.compositeKeys": {
-" "   "jj": {
-" "     "command": "vscode-neovim.lua",
-" "     "args": [["vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Esc>`^', true, true, true), 'n', true)"]]
-" "   }
-" " },
-inoremap jj <Esc>`^
+nnoremap E $
+vnoremap E $<Left>
+noremap B ^
 
-" " ============= TEXT MANIPULATIONS =============
+" Visual mode with Shift+Arrows
+noremap <S-End> <Esc>v$
+noremap <S-Home> <Esc>v^
 
-" " use standard binding for all modes for vs and vscode
-" " inoremap <C-x> <C-o>"_dd
+" ============= TEXT MANIPULATIONS =============
 
-" copy the whole word
-nnoremap <leader>c <Esc>ciw
+" Copy the whole word
+noremap <leader>y "+yiw
 
-" replace word with the buffer but without copying the deleted text
-noremap <leader>r <Esc>viw"_dP
+" Cut the whole word
+noremap <leader>c "+ciw
 
-" select whole word
-noremap <leader>v <Esc>viw
+" Replace word with the buffer but without copying the deleted text
+noremap <leader>r viw"_dP
 
-" copy whole word and move to the end of the word
-noremap <leader>y <Esc>yiwe
+" Select whole word
+noremap <leader>v "+viw
 
-" delete whole word
-noremap <leader>d <Esc>"_daw
-
-" nnoremap x "_x
-
+" Cut whole
+noremap <leader>d "+daw
 
 " Split a line after the cursor and move to the new line.
 nnoremap <leader>j a<CR><Esc>==
@@ -75,11 +60,18 @@ nnoremap <leader>j a<CR><Esc>==
 " Split a line after the cursor and stay.
 nnoremap <leader>J m`a<CR><Esc>==``
 
-"  When replace text, don't copy replaced text
+" When replace text, don't copy replaced text
 vnoremap p "_dP
 
-" " repeat in normal mode
-" " nnoremap <C-y> <C-r>
+" " ================ NAVIGATION MAPPINGS ===================
+inoremap <Home> <Esc>^i
+inoremap <End> <Esc>$a
+
+" <Esc>:noh<CR> <- does not work in some cases in normal mode.
+" inoremap <Esc> <Esc>:noh<CR>
+
+" " todo: support all arrows and visual mode
+" " inoremap <silent> <expr> <S-Right> (col('.') == 1 ? '<Esc>v/[^a-z]<CR><Left>' : '<Esc><Right>v/[^a-z]<CR><Left>')
 
 " " by default it copies the character from the line above the cursor position in insert mode;
 " " in normal and in visual modes: scroll N lines downwards.
